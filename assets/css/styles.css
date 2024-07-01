@@ -1,23 +1,47 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('assets/images/haunted-house.jpg') no-repeat center center fixed;
+    background: url("./../images/house.jpg") no-repeat center center fixed;
     background-size: cover;
+    color: #fff;
     margin: 0;
-    padding: 0;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-image 0.5s ease-in-out;
+}
+/*code for header*/
+header {
+    background-color: rgba(34, 34, 34, 0.8);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-header, footer {
-    text-align: center;
-    background-color: #333;
+header h1 {
+    margin: 0;
+    font-size: 24px;
     color: #fff;
-    padding: 10px;
+}
+
+#game-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#game {
+    background-color: rgba(68, 68, 68, 0.9);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%;
+    max-width: 600px;
 }
 
 .room {
     display: none;
-    text-align: center;
-    padding: 20px;
 }
 
 .room.active {
@@ -25,30 +49,57 @@ header, footer {
 }
 
 button {
+    background-color: #666;
+    color: #fff;
+    border: none;
     padding: 10px 20px;
     margin: 10px;
-    font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
+button:hover {
+    background-color: #888;
+}
+
+footer {
+    background-color: rgba(34, 34, 34, 0.8);
+    padding: 10px 0;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+
+.hidden {
+    display: none;
+}
 .feedback {
     margin-top: 20px;
     font-size: 18px;
-    color: red;
 }
 
 /* Scary 3D Ghost CSS */
-.ghost {
-    position: fixed;
+/*.ghost-container {
+    position: absolute;
     width: 100px;
     height: 150px;
-    background: radial-gradient(circle, white 60%, #ccc);
+}*/
+.ghost {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 150px;
+   margin-left: -50px;
+    margin-top: -75px;
+    background: linear-gradient(white, #ccc);
+   /* background: radial-gradient(circle, white 60%, #ccc);*/
     border-radius: 50% 50% 0 0;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
     animation: float 4s ease-in-out infinite, move 15s linear infinite;
     overflow: hidden;
     transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
-    z-index: 10;
 }
 
 .ghost-eyes {
@@ -89,53 +140,98 @@ button {
     transform: rotate(180deg);
     box-shadow: 0 0 10px red;
 }
-
 .ghost-tentacles {
+
     position: absolute;
+
     bottom: 0;
+
     left: 50%;
+
     width: 100px;
+
     height: 50px;
+
     margin-left: -50px;
+
     overflow: hidden;
+
 }
+
+
 
 .tentacle {
+
     position: absolute;
+
     bottom: 0;
+
     width: 20px;
+
     height: 100%;
+
     background: radial-gradient(circle, white 60%, #ccc);
+
     animation: wave 2s ease-in-out infinite;
+
 }
+
+
 
 .tentacle:nth-child(1) {
+
     left: 0;
+
     animation-delay: -0.5s;
+
 }
+
+
 
 .tentacle:nth-child(2) {
+
     left: 20px;
+
     animation-delay: -1s;
+
 }
+
+
 
 .tentacle:nth-child(3) {
+
     left: 40px;
+
     animation-delay: -1.5s;
+
 }
+
+
 
 .tentacle:nth-child(4) {
+
     left: 60px;
+
     animation-delay: -2s;
+
 }
 
+
+
 @keyframes wave {
+
     0%, 100% {
+
         transform: translateY(0);
+
     }
+
     50% {
+
         transform: translateY(10px);
+
     }
+
 }
 
 /* Floating Animation */
@@ -148,11 +244,12 @@ button {
     }
 }
 
+/* Moving Animation */
 @keyframes move {
-    0%, 100% {
-        left: -10%;
+    0% {
+        left: 0;
     }
-    50% {
-        left: 110%;
+    100% {
+        left: 100%;
     }
 }
