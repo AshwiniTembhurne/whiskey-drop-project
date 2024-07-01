@@ -12,7 +12,7 @@ const rooms = {
     'dining-hall': {
         correctAnswer: '17',
         nextRoom: 'gallery',
-        backgroundImage: 'assets/images/diningtable.jpg',
+        backgroundImage: 'assets/images/diningroom.jpg',
     },
     'gallery': {
         correctAnswer: 'Starry Night',
@@ -22,12 +22,25 @@ const rooms = {
     'study': {
         correctAnswer: 'Oxygen',
         nextRoom: 'observatory',
-        backgroundImage: 'assets/images/studyroom.jpg',
+        backgroundImage: 'assets/images/study.jpg',
     },
     'observatory': {
         correctAnswer: 'Mars',
         nextRoom: 'final-room',
         backgroundImage: 'assets/images/library.jpg',
+    },
+   /* 'kitchen': {
+        correctAnswer: 'Fermentation',
+        nextRoom: 'cellar',
+        backgroundImage: 'assets/images/kitchenroom.jpg',
+    },
+    'celler': {
+        correctAnswer: '1912',
+        nextRoom: 'final-room',
+        backgroundImage: 'assets/images/cellerroom.jpg',
+    },*/
+    'final-room': {
+        backgroundImage: 'assets/images/livingroom.jpg',
     },
 };
 
