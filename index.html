@@ -3,13 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <title>Bootstrap Demo</title>
+    <title>Virtual Escape Room Quiz</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <p>Hello</p>
+    <header class="bg-dark text-white text-center py-3">
+        <h1>Virtual Escape Room Quiz</h1>
+    </header>
+    <div id="game-container" class="container">
+        <div id="game">
+            <!-- Intro Room -->
+            <div id="intro" class="room active text-center">
+                <h2>Escape from the Haunted Mansion</h2>
+                <p>You find yourself in a creepy, abandoned mansion. To escape, solve the puzzles and answer the questions correctly. Find the hidden key before midnight!</p>
+                <button class="btn btn-primary" onclick="startGame()">Start Game</button>
+            </div>
+            <!-- Living Room -->
+            <div id="living-room" class="room hidden text-center">
+                <h2>The Living Room</h2>
+                <p>Which house does Harry Potter belong to?</p>
+                <button class="btn btn-primary" onclick="checkAnswer('living-room', 'Gryffindor')">Gryffindor</button>
+                <button class="btn btn-primary" onclick="checkAnswer('living-room', 'Hufflepuff')">Hufflepuff</button>
+                <button class="btn btn-primary" onclick="checkAnswer('living-room', 'Ravenclaw')">Ravenclaw</button>
+                <button class="btn btn-primary" onclick="checkAnswer('living-room', 'Slytherin')">Slytherin</button>
+                <p class="feedback"></p>
+            </div>
+            <!-- Other rooms -->
+            <div id="dining-room" class="room hidden text-center">
+                <h2>The Dining Room</h2>
+                <p>What is the capital of France?</p>
+                <button class="btn btn-primary" onclick="checkAnswer('dining-room', 'Paris')">Paris</button>
+                <button class="btn btn-primary" onclick="checkAnswer('dining-room', 'London')">London</button>
+                <button class="btn btn-primary" onclick="checkAnswer('dining-room', 'Berlin')">Berlin</button>
+                <button class="btn btn-primary" onclick="checkAnswer('dining-room', 'Madrid')">Madrid</button>
+                <p class="feedback"></p>
+            </div>
+            <div id="library" class="room hidden text-center">
+                <h2>The Library</h2>
+                <p>Who wrote 'To Kill a Mockingbird'?</p>
+                <button class="btn btn-primary" onclick="checkAnswer('library', 'Harper Lee')">Harper Lee</button>
+                <button class="btn btn-primary" onclick="checkAnswer('library', 'Mark Twain')">Mark Twain</button>
+                <button class="btn btn-primary" onclick="checkAnswer('library', 'Ernest Hemingway')">Ernest Hemingway</button>
+                <button class="btn btn-primary" onclick="checkAnswer('library', 'F. Scott Fitzgerald')">F. Scott Fitzgerald</button>
+                <p class="feedback"></p>
+            </div>
+            <!-- Final room -->
+            <div id="final-room" class="room hidden text-center">
+                <h2>The Secret Chamber</h2>
+                <p>Congratulations! You've found the hidden key and escaped the haunted mansion!</p>
+                <p>Thank you for playing the Virtual Escape Room Quiz!</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 Virtual Escape Room Quiz</p>
+    </footer>
+    <!-- Ghost -->
+    <div class="ghost">
+        <div class="ghost-eyes">
+            <div class="ghost-eye left"></div>
+            <div class="ghost-eye right"></div>
+        </div>
+        <div class="ghost-mouth"></div>
+        <div class="ghost-tentacles">
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+            <div class="tentacle"></div>
+        </div>
+    </div>
+    <audio id="background-sound" loop>
+        <source src="assets/audio/background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="correct-answer-sound">
+        <source src="assets/audio/correct-answer.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <audio id="next-room-sound">
+        <source src="assets/audio/next-room.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <script src="script.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,158 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('assets/images/haunted-house.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+header, footer {
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+.room {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.room.active {
+    display: block;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.feedback {
+    margin-top: 20px;
+    font-size: 18px;
+    color: red;
+}
+
+/* Scary 3D Ghost CSS */
+.ghost {
+    position: fixed;
+    width: 100px;
+    height: 150px;
+    background: radial-gradient(circle, white 60%, #ccc);
+    border-radius: 50% 50% 0 0;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    animation: float 4s ease-in-out infinite, move 15s linear infinite;
+    overflow: hidden;
+    transform: perspective(1000px) rotateX(10deg) rotateY(10deg);
+    z-index: 10;
+}
+
+.ghost-eyes {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    width: 60px;
+    height: 20px;
+    margin-left: -30px;
+}
+
+.ghost-eye {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: #000;
+    border-radius: 50%;
+    box-shadow: 0 0 10px red;
+}
+
+.ghost-eye.left {
+    left: 0;
+}
+
+.ghost-eye.right {
+    right: 0;
+}
+
+.ghost-mouth {
+    position: absolute;
+    top: 70px;
+    left: 50%;
+    width: 30px;
+    height: 20px;
+    margin-left: -15px;
+    background: #000;
+    border-radius: 50%;
+    transform: rotate(180deg);
+    box-shadow: 0 0 10px red;
+}
+
+.ghost-tentacles {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100px;
+    height: 50px;
+    margin-left: -50px;
+    overflow: hidden;
+}
+
+.tentacle {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 100%;
+    background: radial-gradient(circle, white 60%, #ccc);
+    animation: wave 2s ease-in-out infinite;
+}
+
+.tentacle:nth-child(1) {
+    left: 0;
+    animation-delay: -0.5s;
+}
+
+.tentacle:nth-child(2) {
+    left: 20px;
+    animation-delay: -1s;
+}
+
+.tentacle:nth-child(3) {
+    left: 40px;
+    animation-delay: -1.5s;
+}
+
+.tentacle:nth-child(4) {
+    left: 60px;
+    animation-delay: -2s;
+}
+
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* Floating Animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@keyframes move {
+    0%, 100% {
+        left: -10%;
+    }
+    50% {
+        left: 110%;
+    }
+}
